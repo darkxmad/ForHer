@@ -1,0 +1,131 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 500px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s ease forwards;
+    z-index: 2;
+    position: relative;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+}
+
+.glow-text {
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff99cc, 0 0 20px #ff66cc, 0 0 40px #ff3399, 0 0 80px #ff0066;
+}
+
+.heart {
+    width: 100px;
+    height: 90px;
+    background: red;
+    position: relative;
+    margin: 20px auto;
+    transform: rotate(-45deg);
+    animation: beat 1s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    width: 100px;
+    height: 90px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -50px;
+    left: 0;
+}
+
+.heart::after {
+    left: 50px;
+    top: 0;
+}
+
+@keyframes beat {
+    0%, 100% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.2); }
+}
+
+.message {
+    font-size: 1.3em;
+    margin: 15px 0;
+    line-height: 1.5;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1em;
+    background-color: #ff4b2b;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #ff416c;
+    transform: scale(1.1);
+}
+
+#finalMessage {
+    margin-top: 20px;
+    font-size: 1.3em;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+#finalMessage.show {
+    opacity: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
